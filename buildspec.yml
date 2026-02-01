@@ -1,0 +1,53 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+
+  pre_build:
+    commands:
+      - echo "Authenticating with AWS CodeArtifact"
+      - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+          --domain nextwork \
+          --domain-owner 020028129935 \
+          --region us-east-1 \
+          --query authorizationToken \
+          --output text)
+
+      - echo "Creating Maven settings.xml"
+      - mkdir -p ~/.m2
+      - |
+        cat > ~/.m2/settings.xml <<EOF
+        <settings>
+          <servers>
+            <server>
+              <id>nextwork-nextwork-devops-cicd</id>
+              <username>aws</username>
+              <password>\${env.CODEARTIFACT_AUTH_TOKEN}</password>
+            </server>
+          </servers>
+
+          <mirrors>
+            <mirror>
+              <id>nextwork-nextwork-devops-cicd</id>
+              <mirrorOf>*</mirrorOf>
+              <url>https://nextwork-020028129935.d.codeartifact.us-east-1.amazonaws.com/maven/nextwork-devops-cicd/</url>
+            </mirror>
+          </mirrors>
+        </settings>
+        EOF
+
+  build:
+    commands:
+      - echo "Build started on $(date)"
+      - mvn clean package
+
+  post_build:
+    commands:
+      - echo "Build completed on $(date)"
+
+artifacts:
+  files:
+    - target/*.war
+
