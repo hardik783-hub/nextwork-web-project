@@ -62,8 +62,10 @@
         </p>
 
         <div class="footer">
-            Built as part of the <b>7-Day DevOps Challenge</b><br/>
-            Designed for scalability, automation, and rollback safety
+            Engineered with modern DevOps practices, focusing on automated delivery,
+            deployment safety, and recovery from failures.
+
+            
         </div>
     </div>
 </body>
