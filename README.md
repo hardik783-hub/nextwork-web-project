@@ -1,61 +1,112 @@
-## Setup
+🚀 CI/CD Pipeline Deployment on AWS
+📌 Project Overview
 
-Follow the steps below to run this project locally or on an EC2 instance:
+This project demonstrates a real-world CI/CD pipeline that automatically builds and deploys a web application to AWS EC2 using AWS CodeDeploy.
+The goal was not just deployment—but understanding reliability, automation, and rollback handling, which are critical in production environments.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/hardik783-hub/nextwork-web-project.git
-    ```
+🧠 Why This Project?
 
-2. Navigate to the project directory:
-    ```bash
-    cd nextwork-web-project
-    ```
+Most beginner projects stop at “Hello World deployed”.
+This project focuses on:
 
-3. Build the project using Maven:
-    ```bash
-    mvn clean package
-    ```
+Automating deployments
 
-4. The generated WAR file will be available in:
-    ```bash
-    target/nextwork-web-project.war
-    ```
+Reducing manual errors
 
----
+Handling failures & rollbacks
 
-## Tech Stack
+Understanding how DevOps works in real production scenarios
 
-- Java 11 (Amazon Corretto)
-- Apache Maven
-- Git & GitHub
-- AWS EC2 (Amazon Linux 2023)
-- VS Code with Remote SSH
+🏗️ Architecture
 
----
+Flow:
 
-## Project Purpose
+Developer → GitHub → AWS CodeDeploy → EC2 Instance → Live Application
+<img width="908" height="286" alt="Screenshot 2026-02-03 204402" src="https://github.com/user-attachments/assets/355baecf-7b7a-42fa-a361-73b2365932fc" />
 
-This project is part of a hands-on DevOps learning journey focused on:
-- Setting up Java and Maven on cloud infrastructure
-- Building Java web applications
-- Preparing artifacts for CI/CD pipelines
-- Working with remote development environments
+Key Components:
 
-Future enhancements will include:
-- Jenkins CI pipeline
-- Docker containerization
-- Automated deployment
+GitHub (Source Control)
 
----
+AWS CodeDeploy (Deployment Automation)
 
-## Contact
+EC2 (Application Hosting)
 
-If you have questions or feedback, feel free to reach out:
-- **GitHub**: https://github.com/hardik783-hub
+Linux (Runtime Environment)
 
----
+⚙️ Tech Stack
 
-## Conclusion
+Cloud: AWS (EC2, IAM, CodeDeploy)
 
-Thank you for exploring this project. This repository will continue to evolve as I expand the CI/CD pipeline and apply DevOps best practices.
+CI/CD: GitHub + AWS CodeDeploy
+
+OS: Linux (Ubuntu)
+
+Version Control: Git & GitHub
+
+🔄 CI/CD Workflow
+
+Code pushed to GitHub repository
+
+AWS CodeDeploy detects the change
+
+Deployment package is created
+
+Application is deployed to EC2 instance
+
+Health checks validate deployment
+
+Rollback occurs automatically if deployment fails
+<img width="1091" height="321" alt="Screenshot 2026-02-05 224905" src="https://github.com/user-attachments/assets/cb737cdc-cb43-4fe1-82f9-dfdd23418a1a" />
+
+
+
+✅ What I Achieved
+
+✔️ Successfully deployed a live web application
+
+✔️ Implemented automated CI/CD pipeline
+
+✔️ Understood deployment lifecycle in AWS
+
+✔️ Learned rollback & recovery handling
+
+✔️ Verified deployment using CodeDeploy dashboard
+
+
+
+🔥 Key Learnings
+
+CI/CD is not just about speed, but reliability
+
+Rollback strategies are as important as successful deployments
+
+Automation reduces human error significantly
+
+Monitoring deployments is a DevOps responsibility, not optional
+
+🧩 Future Improvements
+
+Add AWS CodePipeline for full CI/CD
+
+Dockerize the application
+
+Add monitoring with CloudWatch
+
+Integrate Slack / Email notifications
+
+Extend to Kubernetes deployment
+
+👤 Author
+
+Hardik Garg
+Aspiring DevOps & Cloud Engineer
+
+🔗 LinkedIn:www.linkedin.com/in/hardik-garg-a3aa7b323
+
+
+🔗 GitHub: www.github.com/hardik783-hub
+
+⭐ If you like this project
+
+Give it a ⭐ and feel free to fork or suggest improvements!
